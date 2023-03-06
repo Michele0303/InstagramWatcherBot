@@ -1,13 +1,11 @@
-# InstagramSpyBot
-
-<h2> What is it? </h2>
+# 🤖 InstagramSpyBot
 
 Instagram SpyBot is a bot that automatically downloads and send to telegram every new instagram stories of users placed in the watchlist👀.
 
 <h2> 🛠 Configuration </h2>
 
 <ol>
-  <li>open configuration.env</li>
+  <li>Open configuration.env</li>
 </ol>
 
 ```bash
@@ -26,10 +24,8 @@ USER_AGENT=<user-agent header>
   <li>refresh page and select any request from instagram.com</li>
 </ul>
 
-<h4>SESSION_ID </h4>
 <img src="/assets/cookie.png" width="1000px">
 
-<h4>APP_ID & USER_AGENT </h4>
 <img src="/assets/headers.png" width="1000px">
 
 
