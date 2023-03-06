@@ -12,7 +12,7 @@ Instagram SpyBot is a bot that automatically downloads and send to telegram ever
 
 ```bash
 TOKEN_BOT=<your telegram bot token>
-CHAT_ID=<your user id> (you can find him on @chatIDrobot)
+CHAT_ID=<your user id> (you can find it on @chatIDrobot)
 SESSION_ID=<sessionid cookie>
 APP_ID=<x-ig-app-id header>
 USER_AGENT=<user-agent header>
