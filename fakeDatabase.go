@@ -1,4 +1,4 @@
-package InstagramWatcherBot
+package main
 
 var users = make(map[string]int64)
 

@@ -1,4 +1,4 @@
-package InstagramWatcherBot
+package main
 
 import (
 	"fmt"
