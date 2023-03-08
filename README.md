@@ -2,6 +2,8 @@
 
 InstagramWatcherBot is a bot that automatically downloads and send to telegram every new instagram stories of users placed in the watchlist👀.
 
+<img src="https://github.com/Michele0303/InstagramWatcherBot/blob/main/assets/home.png" width="850px">
+
 <h2> 🛠 Getting Started </h2>
 
 <ol>
