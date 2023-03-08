@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/imroc/req/v3"
 	"github.com/jmoiron/jsonq"
 	"io"
 	"log"
