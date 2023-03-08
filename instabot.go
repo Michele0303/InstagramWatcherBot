@@ -1,4 +1,4 @@
-package InstagramSpyBot
+package main
 
 import (
 	"encoding/json"
@@ -23,30 +23,29 @@ var baseUrl = "https://www.instagram.com"
 
 var client *req.Client = req.C()
 
-func runBot(usernames map[string]string) {
+func runBot(watchlist map[string]string) {
 
-	fmt.Println("INSTAGRAM WATCHBOT STARTED!\n")
+	fmt.Println("\n[*] Bot Started!\n")
 
 	// get ids from usernames
-	for username := range usernames {
+	for username := range watchlist {
 		id := getIdFromUser(username)
-		usernames[username] = id
+		watchlist[username] = id
 	}
 
 	for {
 		// start monitoring
-		scanUsers(usernames)
+		scanUsers(watchlist)
 		time.Sleep(60 * time.Second)
 	}
 
 }
 
-func scanUsers(usernames map[string]string) {
-	for username := range usernames {
-		fmt.Println("CHECK", username)
+func scanUsers(watchlist map[string]string) {
+	for username := range watchlist {
 		time.Sleep(30 * time.Second)
 
-		mediaUrl, mediaType := getLastReel(username, usernames[username])
+		mediaUrl, mediaType := getLastReel(username, watchlist[username])
 		if mediaUrl == "" {
 			continue
 		}
@@ -56,7 +55,7 @@ func scanUsers(usernames map[string]string) {
 		} else {
 			sendVideo(mediaUrl, username)
 		}
-
+		fmt.Printf("[+] [%s] New instagam story sent!\n", username)
 	}
 }
 
@@ -77,13 +76,18 @@ func getIdFromUser(user string) string {
 }
 
 func parseJson(jsonStr string, username string) (mediaUrl string, mediaType int) {
+
 	data := map[string]interface{}{}
 	dec := json.NewDecoder(strings.NewReader(jsonStr))
 	dec.Decode(&data)
 	jq := jsonq.NewQuery(data)
 
 	// get last stories
-	lastReel, _ := jq.Int("reels_media", "0", "latest_reel_media")
+	lastReel, err := jq.Int("reels_media", "0", "latest_reel_media")
+	if err != nil {
+		return "", 0
+	}
+
 	// check if I have already downloaded it
 	if !IsStoryNew(username, int64(lastReel)) {
 		return "", 0

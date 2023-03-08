@@ -1,4 +1,4 @@
-package InstagramSpyBot
+package main
 
 import "github.com/spf13/viper"
 
@@ -8,6 +8,7 @@ type Config struct {
 	SessionID string `mapstructure:"SESSION_ID"`
 	AppID     string `mapstructure:"APP_ID"`
 	UserAgent string `mapstructure:"USER_AGENT"`
+	WatchList string `mapstructure:"WATCH_LIST"`
 }
 
 func LoadConfig(path string) (config Config, err error) {

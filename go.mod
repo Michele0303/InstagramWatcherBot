@@ -1,9 +1,10 @@
-module InstagramSpyBot
+module main
 
 go 1.20
 
 require (
 	github.com/go-telegram-bot-api/telegram-bot-api v4.6.4+incompatible
+	github.com/imroc/req/v3 v3.33.0
 	github.com/jmoiron/jsonq v0.0.0-20150511023944-e874b168d07e
 	github.com/spf13/viper v1.15.0
 )
@@ -16,7 +17,6 @@ require (
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/imroc/req/v3 v3.32.3 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/onsi/ginkgo/v2 v2.2.0 // indirect

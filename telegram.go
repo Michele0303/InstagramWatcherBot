@@ -1,7 +1,8 @@
-package InstagramSpyBot
+package main
 
 import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
+	"log"
 	"strconv"
 )
 
@@ -22,7 +23,17 @@ func sendVideo(mediaUrl string, username string) {
 
 func setupTelegramBot(tokenBot string, id string) {
 	// parse chatID string to int64
-	chatID, _ = strconv.ParseInt(id, 10, 64)
+	chatIDTemp, err := strconv.ParseInt(id, 10, 64)
+	if err != nil {
+		log.Fatal(err)
+	}
+	chatID = chatIDTemp
+
 	// run telegram bot
-	bot, _ = tgbotapi.NewBotAPI(tokenBot)
+	botTemp, err := tgbotapi.NewBotAPI(tokenBot)
+	if err != nil {
+		log.Fatal(err)
+	}
+	bot = botTemp
+
 }
