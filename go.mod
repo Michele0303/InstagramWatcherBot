@@ -1,4 +1,4 @@
-module main
+module github.com/Michele0303/InstagramWatcherBot
 
 go 1.20
 
