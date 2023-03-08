@@ -2,15 +2,23 @@
 
 InstagramWatcherBot is a bot that automatically downloads and send to telegram every new instagram stories of users placed in the watchlist👀.
 
-<h2> 🛠 Configuration </h2>
+<h2> 🛠 Getting Started </h2>
 
 <ol>
-  <li>Open configuration.env</li>
+  <li>Download and install <a href="https://go.dev/doc/install">Go 1.20</a></li>
+  <li> Install the program by running the command in a shell:</li>
+</ol>
+
+```bash
+go install github.com/Michele0303/InstagramWatcherBot@latest
+```
+<ol start="3">
+  <li>Open configuration.env and follow this <a href="https://github.com/Michele0303/InstagramWatcherBot/edit/main/README.md#-how-to-get-instagram-cookie-and-header">guide</a></li>
 </ol>
 
 ```bash
 TOKEN_BOT=<your telegram bot token>
-CHAT_ID=<your user id> (you can find it on @chatIDrobot)
+CHAT_ID=<your telegram user id> (you can find it on @chatIDrobot)
 SESSION_ID=<sessionid cookie>
 APP_ID=<x-ig-app-id header>
 USER_AGENT=<user-agent header>
