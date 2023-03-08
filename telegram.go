@@ -1,4 +1,4 @@
-package main
+package InstagramWatcherBot
 
 import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"

@@ -1,4 +1,4 @@
-package main
+package InstagramWatcherBot
 
 import "github.com/spf13/viper"
 
