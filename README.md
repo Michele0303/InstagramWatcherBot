@@ -13,10 +13,17 @@ InstagramWatcherBot is a bot that automatically downloads and send to telegram e
 
 <!-- go install github.com/Michele0303/InstagramWatcherBot@latest -->
 ```bash
-
+# Clone this repository
 git clone https://github.com/Michele0303/InstagramWatcherBot
+# Go into the repository
 cd InstagramWatcherBot
+# Build project
 go build .
+# run on windows
+InstagramWatcherBot.exe
+# run on linux
+chmod +x InstagramWatcherBot
+./InstagramWatcherBot
 ```
 <ol start="3">
   <li>Open configuration.env and follow this <a href="https://github.com/Michele0303/InstagramWatcherBot#-how-to-get-instagram-cookie-and-header">guide</a></li>
