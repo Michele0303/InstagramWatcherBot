@@ -25,9 +25,9 @@ WATCH_LIST=<user1;user2;user3>
   <li>refresh page and select any request from instagram.com</li>
 </ul>
 
-<img src="https://github.com/Michele0303/InstagramWatcherBot/assets/cookie.png" width="1000px">
+<img src="https://github.com/Michele0303/InstagramWatcherBot/blob/main/assets/cookie.png" width="1000px">
 
-<img src="https://github.com/Michele0303/InstagramWatcherBot/assets/headers.png" width="1000px">
+<img src="https://github.com/Michele0303/InstagramWatcherBot/blob/main/assets/headers.png" width="1000px">
 
 
 
