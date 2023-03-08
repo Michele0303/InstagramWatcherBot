@@ -14,6 +14,7 @@ CHAT_ID=<your user id> (you can find it on @chatIDrobot)
 SESSION_ID=<sessionid cookie>
 APP_ID=<x-ig-app-id header>
 USER_AGENT=<user-agent header>
+WATCH_LIST=<user1;user2;user3>
 ```
 
 <h2>🍪 How to get Instagram Cookie and Header?</h2>
@@ -24,9 +25,9 @@ USER_AGENT=<user-agent header>
   <li>refresh page and select any request from instagram.com</li>
 </ul>
 
-<img src="/assets/cookie.png" width="1000px">
+<img src="https://github.com/Michele0303/InstagramWatcherBot/assets/cookie.png" width="1000px">
 
-<img src="/assets/headers.png" width="1000px">
+<img src="https://github.com/Michele0303/InstagramWatcherBot/assets/headers.png" width="1000px">
 
 
 
