@@ -22,7 +22,6 @@ go build .
 # run on windows
 InstagramWatcherBot.exe
 # run on linux
-chmod +x InstagramWatcherBot
 ./InstagramWatcherBot
 ```
 <ol start="3">
