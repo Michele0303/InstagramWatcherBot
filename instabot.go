@@ -70,6 +70,10 @@ func getIdFromUser(user string) string {
 		log.Fatal(err)
 	}
 
+	if !strings.Contains(string(content), "\"pk\":\"") {
+		log.Fatal("[-] Error extractId")
+	}
+
 	// extract id from source page
 	extractId := strings.Split(string(content), "\",\"")[0]
 	return strings.Split(extractId, "\"pk\":\"")[1]
