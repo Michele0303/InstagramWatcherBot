@@ -49,5 +49,5 @@ WATCH_LIST=<user1;user2;user3>
 
 <img src="https://github.com/Michele0303/InstagramWatcherBot/blob/main/assets/headers.png" width="1000px">
 
-
-
+## Legal
+This code is in no way affiliated with, authorized, maintained, sponsored or endorsed by Instagram or any of its affiliates or subsidiaries. Use at your own risk.
