@@ -31,7 +31,7 @@ func runBot(watchlist map[string]string) {
 	for username := range watchlist {
 		id := getIdFromUser(username)
 		if id == "" {
-			fmt.Printf("[-] Unable to find the ID for user: " + username)
+			fmt.Printf("\n[-] Unable to find the ID for user: " + username)
 			continue
 		}
 		watchlist[username] = id
@@ -79,16 +79,15 @@ func getIdFromUser(user string) string {
 	}
 
 	// extract id from source page
-	splitContent := strings.Split(string(content), "\",\"")
-	if len(splitContent) >= 2 {
-		extractId := splitContent[0]
-		splitId := strings.Split(extractId, "\"pk\":\"")
-		if len(splitId) >= 2 {
-			return splitId[1]
-		}
+	splits := strings.Split(string(content), "pk\":\"")
+	if len(splits) <= 1 {
+		log.Fatal("[-] Error extractId")
 	}
 
-	return ""
+	var extractId = splits[0]
+	extractId = strings.Split(extractId, "\",\"")[0]
+
+	return extractId
 }
 
 func parseJson(jsonStr string, username string) (mediaUrl string, mediaType int) {
