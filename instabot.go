@@ -64,30 +64,42 @@ func scanUsers(watchlist map[string]string) {
 }
 
 func getIdFromUser(user string) string {
-	resp, err := client.R().Get("/web/search/topsearch/?context=blended&query=" + user + "&rank_token=0.3953592318270893&count=1")
+	// Realizar la solicitud HTTP para obtener los datos del usuario
+	resp, err := client.R().
+		Get("/web/search/topsearch/?context=blended&query=" + user + "&rank_token=0.3953592318270893&count=1")
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Error al realizar la solicitud HTTP: %v", err)
+	}
+	defer resp.Body.Close()
+
+	// Leer y decodificar la respuesta JSON
+	var data map[string]interface{}
+	if err := json.NewDecoder(resp.Body).Decode(&data); err != nil {
+		log.Fatalf("Error al decodificar la respuesta JSON: %v", err)
 	}
 
-	content, err := io.ReadAll(resp.Body)
-	if err != nil {
-		log.Fatal(err)
+	// Verificar si la respuesta contiene la estructura esperada
+	users, ok := data["users"].([]interface{})
+	if !ok || len(users) == 0 {
+		log.Fatalf("No se encontró el campo 'users' en la respuesta JSON")
 	}
 
-	if !strings.Contains(string(content), "\"pk\":\"") {
-		log.Fatal("[-] Error extractId")
+	userObj, ok := users[0].(map[string]interface{})
+	if !ok {
+		log.Fatalf("No se pudo convertir 'users[0]' a un objeto map[string]interface{}")
 	}
 
-	// extract id from source page
-	splits := strings.Split(string(content), "pk\":\"")
-	if len(splits) <= 1 {
-		log.Fatal("[-] Error extractId")
+	userNode, ok := userObj["user"].(map[string]interface{})
+	if !ok {
+		log.Fatalf("No se pudo convertir 'user' a un objeto map[string]interface{}")
 	}
 
-	var extractId = splits[0]
-	extractId = strings.Split(extractId, "\",\"")[0]
+	id, ok := userNode["pk"].(string)
+	if !ok {
+		log.Fatalf("No se encontró la clave 'pk' o no es una cadena")
+	}
 
-	return extractId
+	return id
 }
 
 func parseJson(jsonStr string, username string) (mediaUrl string, mediaType int) {
